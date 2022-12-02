@@ -177,6 +177,7 @@ from EA_SECURITY_DATALAKE.RAW.AMZ_AWS_VPC;
 
 
 CREATE OR REPLACE VIEW AMZ_AWS_S3_ODM AS
+SELECT
 ORIGINAL_STRING,
 GUID,
 COMMIT_TIME,
@@ -200,7 +201,6 @@ ORIGINAL_STRING:detail:userIdentity:sessionContext:attributes:creationDate::TIME
 ORIGINAL_STRING:detail:managementEvent::BOOLEAN                             AS  ADMIN_FLAG,
 ORIGINAL_STRING:"detail-type"::VARCHAR                                  AS  AWS_DETAIL_TYPE,
 ORIGINAL_STRING:detail:eventVersion::VARCHAR                              AS  AWS_EVENT_VERSION,
-to_timestamp_ntz(CONVERT_TIMEZONE('UTC', current_timestamp))                                                                                AS  COMMIT_TIME,
 ORIGINAL_STRING:detail::VARIANT                                     AS  DETAIL_INFO,
 ORIGINAL_STRING:source::VARCHAR                                     AS  DST_SERVICE_NAME    ,
 ORIGINAL_STRING:detail:recipientAccountId::VARCHAR                            AS  DST_USER_ID  ,
@@ -415,7 +415,6 @@ ORIGINAL_STRING:detail:responseElements:VirtualMFADevice::VARIANT               
 ORIGINAL_STRING:detail:serviceEventDetails::VARIANT                           AS  SERVICE_EVENT_DETAILS  ,
 ORIGINAL_STRING:detail:sharedEventID::VARCHAR                             AS  SHARED_EVENT_GUID    ,
 ORIGINAL_STRING:detail:sourceIPAddress::VARCHAR                             AS  SRC_IP ,
-ENRICHMENT_JSON:SRC_RDNS_DOMAIN::VARCHAR                                AS  SRC_RDNS_DOMAIN,
 ORIGINAL_STRING:detail:userIdentity:invokedBy::VARCHAR                          AS  SRC_SERVICE_NAME ,
 'AWS IAM STS Console'                                                 AS  SRC_TYPE,
 ORIGINAL_STRING:detail:userIdentity:arn::VARCHAR                            AS  SRC_USER_ARN ,
