@@ -130,9 +130,8 @@ ALTER PIPE AMZ_AWS_VPC_PIPE REFRESH;
 
 USE SCHEMA ANALYTICS;
 
-CREATE OR REPLACE VIEW AMZ_AWS_VPC_FLOW_ODM AS
+CREATE OR REPLACE VIEW AMZ_AWS_VPCFLOW_ODM AS
 SELECT
-original_string,
 guid,
 commit_time,
 original_string:event_time as event_time,
@@ -164,12 +163,7 @@ original_string:tcp_flags as tcp_flags,
 original_string:traffic_path as traffic_path,
 original_string:type as type,
 original_string:version as version,
-original_string:vpc_id as vpc_id,
-CASE WHEN TRY_TO_NUMERIC(SPLIT_PART(original_string:dstaddr, '.', 1)) = 10
-OR original_string:dstaddr like any ('192.168.%','169.254.%','fe80%','fc%','fd%','::ffff:10.%','::ffff:192.168.%','::ffff:169.254.%')
-OR (SPLIT_PART(original_string:dstaddr, '.', 1) = 172 and TRY_TO_NUMERIC(SPLIT_PART(original_string:dstaddr, '.', 2)) between 16 and 31)
-OR (original_string:dstaddr LIKE '::ffff:172.%' and TRY_TO_NUMERIC(SPLIT_PART(original_string:dstaddr, '.', 2)) between 16 and 31)
-THEN 'LOCAL' ELSE 'REMOTE' END AS DSTPORT_TYPE
+original_string:vpc_id as vpc_id
 from EA_SECURITY_DATALAKE.RAW.AMZ_AWS_VPC;
 
 
