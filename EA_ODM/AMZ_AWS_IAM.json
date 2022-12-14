@@ -1,0 +1,306 @@
+[
+ {
+   "A": "Source_Table_Name",
+   "B": "Field_Name",
+   "C": "JSON_MAPPING",
+   "D": "DESCRIPTION",
+   "E": "DATA_TYPE",
+   "F": "SAMPLE_VALUES"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ACCOUNT_ID",
+   "C": "ORIGINAL_STRING:”account”",
+   "D": "The 12-digit number identifying an AWS account. \nSee Event Patterns in CloudWatch Events - Amazon CloudWatch Events ",
+   "E": "VARCHAR",
+   "F": "“143284503500”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ADDENDUM_INFO",
+   "C": "ORIGINAL_STRING:”detail.addendum”",
+   "D": "If an event delivery was delayed, or additional information about an existing event becomes available after the event is logged, an addendum field shows information about why the event was delayed. If information was missing from an existing event, the addendum field includes the missing information and a reason for why it was missing. Contents include the following.\nreason - The reason that the event or some of its contents were missing. Values can be any of the following.\nDELIVERY_DELAY – There was a delay delivering events. This could be caused by high network traffic, connectivity issues, or a CloudTrail service issue.\nUPDATED_DATA – A field in the event record was missing or had an incorrect value.\nSERVICE_OUTAGE – A service that logs events to CloudTrail had an outage, and couldn’t log events to CloudTrail. This is exceptionally rare.\nupdatedFields - The event record fields that are updated by the addendum. This is only provided if the reason is UPDATED_DATA.\noriginalRequestID - The original unique ID of the request. This is only provided if the reason is UPDATED_DATA.\noriginalEventID - The original event ID. This is only provided if the reason is UPDATED_DATA.\nSince: 1.08\nOptional: True\nSee CloudTrail record contents - AWS CloudTrail ",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2} "
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ADDENDUM_ORIGINAL_REQUEST_GUID",
+   "C": "ORIGINAL_STRING:”detail.addendum.originalRequestID”",
+   "D": "The original unique ID of the request. This is only provided if the reason is UPDATED_DATA.",
+   "E": "VARCHAR",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ADDENDUM_ORIGINAL_EVENT_GUID",
+   "C": "ORIGINAL_STRING:”detail.addendum.originalEventID”",
+   "D": "The original event ID. This is only provided if the reason is UPDATED_DATA.",
+   "E": "VARCHAR",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ADDENDUM_REASON",
+   "C": "ORIGINAL_STRING:”detail.addendum.reason”",
+   "D": "The reason that the event or some of its contents were missing. Values can be any of the following.\nDELIVERY_DELAY – There was a delay delivering events. This could be caused by high network traffic, connectivity issues, or a CloudTrail service issue.\nUPDATED_DATA – A field in the event record was missing or had an incorrect value.\nSERVICE_OUTAGE – A service that logs events to CloudTrail had an outage, and couldn’t log events to CloudTrail. This is exceptionally rare.",
+   "E": "VARCHAR",
+   "F": "“DELIVERY_DELAY”\n“UPDATED_DATA”\n“SERVICE_OUTAGE”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ADDENDUM_UPDATED_FIELDS",
+   "C": "ORIGINAL_STRING:”detail.addendum.updatedFields”",
+   "D": "The event record fields that are updated by the addendum. This is only provided if the reason is UPDATED_DATA.",
+   "E": "VARIANT",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ADDITIONAL_HOST",
+   "C": "ORIGINAL_STRING:”detail.additionalEventData.LoginTo”",
+   "D": "Indiciates the host URL on to which the logon occurred.",
+   "E": "VARCHAR",
+   "F": "\"https://console.aws.amazon.com/console/home?state=hashArgs%23&isauthcode=true\""
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ADDITIONAL_INFO",
+   "C": "ORIGINAL_STRING:”detail.additionalEventData”",
+   "D": "Additional data about the event that was not part of the request or response. This field has a maximum size of 28 KB; content exceeding that limit is truncated. (This seems to be used for the Console Logon events which are not API calls.)\nSupport for this field begins with eventVersion 1.00.\nSince: 1.0\nOptional: True\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html and https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.html ",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"LoginTo\": \"https://console.aws.amazon.com/console/home?state=hashArgs%23&isauthcode=true\", 3 \"MobileVersion\": \"No\", 4 \"MFAUsed\": \"No\" 5} "
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ADDTIONAL_MFA_TYPE",
+   "C": "ORIGINAL_STRING:”detail.additionalEventData.MfaType”",
+   "D": "Indicates the type of multi-factor authentication.",
+   "E": "VARCHAR",
+   "F": "\"U2F MFA\""
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ADDITIONAL_MFA_FLAG",
+   "C": "ORIGINAL_STRING:”detail.additionalEventData.MFAUsed”",
+   "D": "Indicates whether the logon used multi-factor authentication.",
+   "E": "VARCHAR",
+   "F": "“No”\n“Yes”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ADDITIONAL_MOBILE_FLAG",
+   "C": "ORIGINAL_STRING:”detail.additionalEventData.MobileVersion”",
+   "D": "Indicates if the logon occurred on a mobile app.",
+   "E": "VARCHAR",
+   "F": "“No”\n“Yes”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ADMIN_FLAG",
+   "C": "ORIGINAL_STRING:”detail.managementEvent”",
+   "D": "A Boolean value that identifies whether the event is a management event. managementEvent is shown in an event record if eventVersion is 1.06 or higher, and the event type is one of the following:\nAwsApiCall\nAwsConsoleAction\nAwsConsoleSignIn\nAwsServiceEvent\nSince: 1.06\nOptional: True\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html ",
+   "E": "BOOLEAN",
+   "F": "True"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "AWS_API_VERSION",
+   "C": "ORIGINAL_STRING:”detail.apiVersion”",
+   "D": "Identifies the API version associated with the AwsApiCall eventType value.\nSince: 1.01\nOptional: True\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html ",
+   "E": "VARCHAR",
+   "F": "\"1.08\""
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "AWS_DETAIL_TYPE",
+   "C": "ORIGINAL_STRING:”detail-type”",
+   "D": "Identifies, in combination with the source field, the fields and values that appear in the detail field.\nAll events that are delivered via CloudTrail have AWS API Call via CloudTrail as the value for detail-type. For more information, see Events Delivered Via CloudTrail.\nThe contents of the detail top-level field are different depending on which service generated the event and what the event is. The combination of the source and detail-type fields serves to identify the fields and values found in the detail field. For examples of events generated by AWS services, see Event Types for CloudWatch Events.",
+   "E": "VARCHAR",
+   "F": "“AWS API Call via CloudTrail”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "AWS_EVENT_VERSION",
+   "C": "ORIGINAL_STRING:”detail.eventVersion”",
+   "D": "The version of the log event format. The current version is 1.08.\nThe eventVersion value is a major and minor version in the form major_version.minor_version. For example, you can have an eventVersion value of 1.07, where 1 is the major version, and 07 is the minor version.\nCloudTrail increments the major version if a change is made to the event structure that is not backward-compatible. This includes removing a JSON field that already exists, or changing how the contents of a field are represented (for example, a date format). CloudTrail increments the minor version if a change adds new fields to the event structure. This can occur if new information is available for some or all existing events, or if new information is available only for new event types. Applications can ignore new fields to stay compatible with new minor versions of the event structure.\nIf CloudTrail introduces new event types, but the structure of the event is otherwise unchanged, the event version does not change.\nTo be sure that your applications can parse the event structure, we recommend that you perform an equal-to comparison on the major version number. To be sure that fields that are expected by your application exist, we also recommend performing a greater-than-or-equal-to comparison on the minor version. There are no leading zeroes in the minor version. You can interpret both major_version and minor_version as numbers, and perform comparison operations.\nSince: 1.0\nOptional: False\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html ",
+   "E": "VARCHAR",
+   "F": "“1.08”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "COMMIT_TIME",
+   "C": "COMMIT_TIME",
+   "D": "The time when the record was commited to the Snowflake database.",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "CONSOLE_SESSION_FLAG",
+   "C": "ORIGINAL_STRING:”detail.sessionCredentialFromConsole”",
+   "D": "Shows whether or not an event originated from a AWS Management Console session. This field is not shown unless the value is true, meaning that the client that was used to make the API call was either a proxy or an external client. If a proxy client was used, the tlsDetails event field is not shown.\nSince: 1.08\nOptional: True\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html ",
+   "E": "BOOLEAN",
+   "F": "true\nfalse"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "DETAIL_INFO",
+   "C": "ORIGINAL_STRING:”detail”",
+   "D": "A JSON object, whose content is at the discretion of the service originating the event. AWS API call events have detail objects with around 50 fields nested several levels deep.\nThe contents of the detail top-level field are different depending on which service generated the event and what the event is. \nSee https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html ",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"awsRegion\":\"“us-east-2”, 3 \"eventCategory\":\"Management\", 4 \"eventID\":\"09e378f5-3857-408a-9740-d13576d1690e\", 5 \"eventName\":\"AssumeRole\", 6 \"eventSource\":\"sts.amazonaws.com\", 7 \"eventTime\":\"2021-05-21T23:44:02Z\", 8 \"eventType\":\"AwsApiCall\", 9 \"eventVersion\":\"1.08\", 10 \"managementEvent\":True, 11 \"readOnly\":True, 12 \"recipientAccountId\":\"143284503500\", 13 \"requestID\":\"013d5af0-c24f-4452-9ffa-831df0e56b63\", 14 \"requestParameters\":{ 15 \"durationSeconds\":3600, 16 \"externalId\":\"elasticbeanstalk\", 17 \"roleArn\":“arn:aws:iam::143284503500:role/aws-service-role/eks-nodegroup.amazonaws.com/AWSServiceRoleForAmazonEKSNodegroup”, 18 \"roleSessionName\":\"EKS\", 19 }, 20 \"resources\":\"143284503500\", 21 \"responseElements\":{ 22 \"assumeRoleUser\":{ 23 \"arn\":\"arn:aws:sts::143284503500:assumed-role/AWSServiceRoleForAmazonEKSNodegroup/EKS\", 24 \"assumedRoleId\":\"AROASCXDMAPGNSZHW4QWQ:EKS\" 25 }, 26 \"credentials\":{ 27 \"accessKeyId\":“ASIASCXDMAPGH4LJ4BYN”, 28 \"expiration\":“May 22, 2021 12:44:02 AM” 29 } 30 }, 31 \"sharedEventID\":\"370322fe-6aed-4657-b04a-14fee0020fc2\", 32 \"sourceIPAddress\":\"eks-nodegroup.amazonaws.com\", 33 \"userAgent\":\"eks-nodegroup.amazonaws.com\", 34 \"userIdentity\":{ 35 \"accountID\":“646455780665”, 36 \"invokedBy\":“eks-nodegroup.amazonaws.com”, 37 \"principalId\":“AIDAZNA6EMU4TPSRJ4I6C”, 38 \"type\":“AWSService” 39 }, 40 \"detail-type\":\"AWS API Call via CloudTrail\", 41 \"id\":\"8ead4f09-3e9b-26c6-6ab1-ed00d3f9f41b\", 42 \"region\":\"us-east-2\", 43 \"source\":\"aws.sts\", 44 \"time\":\"2021-05-21T23:44:02Z\", 45 \"version\":0 46} "
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "DST_SERVICE_NAME",
+   "C": "ORIGINAL_STRING:”source”",
+   "D": "Identifies the service that sourced the event (i.e. from where the log event comes, the service process not the client process). All events sourced from within AWS begin with \"AWS.\" Customer-generated events can have any value here, as long as it doesn't begin with \"AWS.\" We recommend the use of Java package-name style reverse domain-name strings.\nTo find the correct value for source for an AWS service, see the table in AWS Service Namespaces. For example, the source value for Amazon CloudFront is aws.cloudfront.\nSee https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html \nThe service that the request was made to. This name is typically a short form of the service name without spaces plus .amazonaws.com. For example:\nAWS CloudFormation is cloudformation.amazonaws.com.\nAmazon EC2 is ec2.amazonaws.com.\nAmazon Simple Workflow Service is swf.amazonaws.com.\nThis convention has some exceptions. For example, the eventSource for Amazon CloudWatch is monitoring.amazonaws.com.\nSince: 1.0\nOptional: False",
+   "E": "VARCHAR",
+   "F": "“aws.sts”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "DST_USER_ID",
+   "C": "ORIGINAL_STRING:”detail.recipientAccountId”",
+   "D": "Represents the account ID that received this event. The recipientAccountID may be different from the CloudTrail userIdentity Element accountId. This can occur in cross-account resource access. For example, if a KMS key, also known as a customer master key (CMK), was used by a separate account to call the Encrypt API, the accountId and recipientAccountID values will be the same for the event delivered to the account that made the call, but the values will be different for the event that is delivered to the account that owns the CMK.\nSince: 1.02\nOptional: True\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html ",
+   "E": "VARCHAR",
+   "F": "“143284503500”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "DVC_PRODUCT",
+   "C": "Constant “AWS”",
+   "D": "Constant “AWS”",
+   "E": "VARCHAR",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "DVC_VENDOR",
+   "C": "Constant “Amazon”",
+   "D": "Constant “Amazon”",
+   "E": "VARCHAR",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "DVC_VERSION",
+   "C": "Constant “*”",
+   "D": "Constant “*”",
+   "E": "VARCHAR",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ERROR_CODE",
+   "C": "ORIGINAL_STRING:”detail.errorCode”",
+   "D": "The AWS service error if the request returns an error. For an example that shows this field, see Error Code and Message Log Example. This field has a maximum size of 1 KB; content exceeding that limit is truncated.\nSince: 1.0\nOptional: True\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html , https://docs.aws.amazon.com/IAM/latest/APIReference/CommonErrors.html ",
+   "E": "VARCHAR",
+   "F": "“TrailNotFoundException”\n“AccessDeniedException”\n“IncompleteSignature”\n“InternalFailure”\n“InvalidAction”\n“InvalidClientTokenId”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "ERROR_DESC",
+   "C": "ORIGINAL_STRING:”detail.errorMessage”",
+   "D": "If the request returns an error, the description of the error. This message includes messages for authorization failures. CloudTrail captures the message logged by the service in its exception handling. For an example, see Error Code and Message Log Example. This field has a maximum size of 1 KB; content exceeding that limit is truncated.\nNote\nSome AWS services provide the errorCode and errorMessage as top-level fields in the event. Other AWS services provide error information as part of responseElements.\nSince: 1.0\nOptional: True\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html, https://docs.aws.amazon.com/IAM/latest/APIReference/CommonErrors.html ",
+   "E": "VARCHAR",
+   "F": "\"Failed authentication\"\n\"Unknown trail: myTrail2 for the user: 123456789012\""
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "EVENT_CAT_NAME",
+   "C": "ORIGINAL_STRING:”detail.eventCategory”",
+   "D": "Shows the event category that is used in LookupEvents calls.\nFor management events, the value is Management.\nFor data events, the value is Data.\nFor Insights events, the value is Insight.\nSince: 1.07\nOptional: False\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html ",
+   "E": "VARCHAR",
+   "F": "“Management”\n“Data”\n“Insight”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "EVENT_GUID",
+   "C": "ORIGINAL_STRING:”detail.eventID”",
+   "D": "GUID generated by CloudTrail to uniquely identify each event. You can use this value to identify a single event. For example, you can use the ID as a primary key to retrieve log data from a searchable database.\nSince: 1.01\nOptional: False\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html ",
+   "E": "VARCHAR",
+   "F": "“09e378f5-3857-408a-9740-d13576d1690e”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "EVENT_NAME",
+   "C": "ORIGINAL_STRING:”detail.eventName”",
+   "D": "The requested action, which is one of the actions in the API for that service.\nSince: 1.0\nOptional: False\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html ",
+   "E": "VARCHAR",
+   "F": "“AssumeRole”\n\"ConsoleLogin\""
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "EVENT_SERVICE_NAME",
+   "C": "ORIGINAL_STRING:”detail.eventSource”",
+   "D": "The service that the request was made to. This name is typically a short form of the service name without spaces plus .amazonaws.com. For example:\nAWS CloudFormation is cloudformation.amazonaws.com.\nAmazon EC2 is ec2.amazonaws.com.\nAmazon Simple Workflow Service is swf.amazonaws.com.\nThis convention has some exceptions. For example, the eventSource for Amazon CloudWatch is monitoring.amazonaws.com.\nSince: 1.0\nOptional: False\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html ",
+   "E": "VARCHAR",
+   "F": "“iam.amazonaws.com”\n“sts.amazonaws.com”\n\"signin.amazonaws.com\""
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "EVENT_TIME",
+   "C": "ORIGINAL_STRING:”time”",
+   "D": "The event timestamp, which can be specified by the service originating the event. If the event spans a time interval, the service might choose to report the start time, so this value can be noticeably before the time the event is actually received.\nSee https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html ",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": "“2021-05-21T23:44:02Z”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "EVENT_TYPE",
+   "C": "ORIGINAL_STRING:”detail.eventType”",
+   "D": "Identifies the type of event that generated the event record. This can be the one of the following values:\nAwsApiCall – An API was called.\nAwsServiceEvent – The service generated an event related to your trail. For example, this can occur when another account made a call with a resource that you own.\nAwsConsoleAction – An action was taken in the console that was not an API call.\nAwsConsoleSignIn – A user in your account (root, IAM, federated, SAML, or SwitchRole) signed in to the AWS Management Console.\nSince: 1.02\nOptional: False\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html ",
+   "E": "VARCHAR",
+   "F": "“AwsApiCall”\n“AwsServiceEvent”\n“AwsConsoleAction”\n“AwsConsoleSignIn”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "GUID",
+   "C": "GUID",
+   "D": "Globally Unique Identifier generated by Snowflake.",
+   "E": "VARCHAR",
+   "F": "“519c5bf5-cb0f-4816-9d22-b860abf68c63”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "MFA_SESSION_FLAG",
+   "C": "ORIGINAL_STRING:”detail.userIdentity.sessionContext.mfaAuthenticated”",
+   "D": "mfaAuthenticated – The value is true if the root user or IAM user whose credentials were used for the request also was authenticated with an MFA device; otherwise, false.\nOptional: True\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html ",
+   "E": "BOOLEAN",
+   "F": "true\nfalse"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "NEW_USER_SESSION_TIME",
+   "C": "ORIGINAL_STRING:”detail.userIdentity.sessionContext.creationDate”",
+   "D": "creationDate – The date and time when the temporary security credentials were issued. Represented in ISO 8601 basic notation.\nOptional: True\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html ",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "READONLY_FLAG",
+   "C": "ORIGINAL_STRING:”detail.readOnly”",
+   "D": "Identifies whether this operation is a read-only operation. This can be one of the following values:\ntrue – The operation is read-only (for example, DescribeTrails).\nfalse – The operation is write-only (for example, DeleteTrail).\nSince: 1.01\nOptional: True\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html ",
+   "E": "BOOLEAN",
+   "F": "True"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "REGION_NAME",
+   "C": "ORIGINAL_STRING:”region”",
+   "D": "Identifies the AWS region where the event originated.\nSee https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html ",
+   "E": "VARCHAR",
+   "F": "“us-east-2”"
+ },
+ {
+   "A": "AMZ_AWS_IAM_ODM",
+   "B": "REQUEST_INFO",
+   "C": "ORIGINAL_STRING:”detail.requestParameters”",
+   "D": "The parameters, if any, that were sent with the request. These parameters are documented in the API reference documentation for the appropriate AWS service. This field has a maximum size of 100 KB; content exceeding that limit is truncated.\nSince: 1.0\nOptional: False\nSee https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html , https://docs.aws.amazon.com/AmazonECS/latest/APIReference/Welcome.html , ",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"durationSeconds\":3600, 3 \"externalId\":\"elasticbeanstalk\", 4 \"roleArn\":“arn:aws:iam::143284503500:role/aws-service-role/eks-nodegroup.amazonaws.com/AWSServiceRoleForAmazonEKSNodegroup”, 5 \"roleSessionName\":\"EKS\", 6} "
+ }
+]

@@ -1,0 +1,266 @@
+[
+ {
+   "A": "Source_Table_Name",
+   "B": "Field_Name",
+   "C": "JSON_MAPPING",
+   "D": "DESCRIPTION",
+   "E": "DATA_TYPE",
+   "F": "SAMPLE_VALUES"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "ACCOUNT_ID",
+   "C": "ACCOUNT_ID",
+   "D": "The AWS account ID of the owner of the source network interface for which traffic is recorded. If the network interface is created by an AWS service, for example when creating a VPC endpoint or Network Load Balancer, the record might display unknown for this field.",
+   "E": "VARCHAR",
+   "F": "143284503500"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "AZ_ID",
+   "C": "AZ_ID",
+   "D": "The ID of the Availability Zone that contains the network interface for which traffic is recorded. If the traffic is from a sublocation, the record displays a '-' symbol for this field.",
+   "E": "VARCHAR",
+   "F": "use2-az2\n-"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "COMMIT_TIME",
+   "C": "COMMIT_TIME",
+   "D": "The time the record was committed in the Snowflake database.",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "FLOW_DIRECTION",
+   "C": "FLOW_DIRECTION",
+   "D": "The direction of the flow with respect to the interface where traffic is captured. The possible values are: ingress | egress.",
+   "E": "VARCHAR",
+   "F": "ingress | egress "
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "ACTION",
+   "C": "ACTION",
+   "D": "The action that is associated with the traffic:\nACCEPT — The recorded traffic was permitted by the security groups and network ACLs.\nREJECT — The recorded traffic was not permitted by the security groups or network ACLs.",
+   "E": "VARCHAR",
+   "F": "ACCEPT\nREJECT"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "PKT_DSTADDR",
+   "C": "PKT_DSTADDR",
+   "D": "The packet-level (original) destination IP address for the traffic. Use this field with the dstaddr field to distinguish between the IP address of an intermediate layer through which traffic flows, and the final destination IP address of the traffic. For example, when traffic flows through a network interface for a NAT gateway, or where the IP address of a pod in Amazon EKS is different from the IP address of the network interface of the instance node on which the pod is running (for communication within a VPC).",
+   "E": "VARCHAR",
+   "F": "192.168.131.22"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "DSTADDR",
+   "C": "DSTADDR",
+   "D": "The destination address for outgoing traffic, or the IPv4 or IPv6 address of the network interface for incoming traffic on the network interface. The IPv4 address of the network interface is always its private IPv4 address. See also pkt-dstaddr.",
+   "E": "VARCHAR",
+   "F": "192.168.131.22"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "DSTPORT",
+   "C": "DSTPORT",
+   "D": "The destination port of the traffic.",
+   "E": "NUMBER(38,0)",
+   "F": "31265 "
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "PKT_DST_AWS_SERVICE",
+   "C": "PKT_DST_AWS_SERVICE",
+   "D": "The name of the subset of IP address ranges for the pkt-dstaddr field, if the destination IP address is for an AWS service. For a list of possible values, see the pkt-src-aws-service field.",
+   "E": "VARCHAR",
+   "F": "AMAZON\nAMAZON_APPFLOW\nAMAZON_CONNECT\nAPI_GATEWAY\nCHIME_MEETINGS\nCHIME_VOICECONNECTOR\nCLOUD9\nCLOUDFRONT\nCODEBUILD\nDYNAMODB EBS\nEC2\nEC2_INSTANCE_CONNECT \nGLOBALACCELERATOR\nKINESIS_VIDEO_STREAMS\nROUTE53\nROUTE53_HEALTHCHECKS\nROUTE53_HEALTHCHECKS_PUBLISHING\nROUTE53_RESOLVER\nS3\nWORKSPACES_GATEWAYS\n-"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "EVENT_TIME",
+   "C": "EVENT_TIME",
+   "D": "The time the event occurred.",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": "2021-11-29T05:00:03.000Z"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "START_TIME",
+   "C": "START_TIME",
+   "D": "The time, in Unix seconds, when the first packet of the flow was received within the aggregation interval. This might be up to 60 seconds after the packet was transmitted or received on the network interface.",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": "1638162003 "
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "LOG_STATUS",
+   "C": "LOG_STATUS",
+   "D": "The logging status of the flow log:\nOK — Data is logging normally to the chosen destinations.\nNODATA — There was no network traffic to or from the network interface during the aggregation interval.\nSKIPDATA — Some flow log records were skipped during the aggregation interval. This might be because of an internal capacity constraint, or an internal error.",
+   "E": "VARCHAR",
+   "F": "OK \nNODATA \nSKIPDATA "
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "VERSION",
+   "C": "VERSION",
+   "D": "The VPC Flow Logs version. If you use the default format, the version is 2. If you use a custom format, the version is the highest version among the specified fields. For example, if you specify only fields from version 2, the version is 2. If you specify a mixture of fields from versions 2, 3, and 4, the version is 4.",
+   "E": "NUMBER(38,0)",
+   "F": "5"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "GUID",
+   "C": "GUID",
+   "D": "This is a globally unique identifier value computed at the time the record is committed in Snowflake as UUID_STRING()",
+   "E": "VARCHAR",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "BYTES",
+   "C": "BYTES",
+   "D": "The number of bytes transferred to the interface during the flow.\nIF AMZ_AWS_LOGS_CONNECTOR_VPC.FLOW_DIRECTION = ‘ingress’ \nTHEN IN_BYTES= BYTES \nELSE IN_BYTES= 0",
+   "E": "NUMBER(38,0)",
+   "F": "112 "
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "INTERFACE_ID",
+   "C": "INTERFACE_ID",
+   "D": "The ID of the network interface for which the traffic is recorded.\nIF AMZ_AWS_LOGS_CONNECTOR_VPC.FLOW_DIRECTION = ‘ingress’ \nTHEN IN_IF = INTERFACE_ID\nELSE IN_IF = NULL",
+   "E": "VARCHAR",
+   "F": "eni-0894cb8f7c6862b64"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "PACKETS",
+   "C": "PACKETS",
+   "D": "The number of packets transferred during the flow.\nIF AMZ_AWS_LOGS_CONNECTOR_VPC.FLOW_DIRECTION = ‘ingress’ \nTHEN IN_PACKET_COUNT= PACKETS\nELSE IN_PACKET_COUNT= 0",
+   "E": "NUMBER(38,0)",
+   "F": "2"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "INSTANCE_ID",
+   "C": "INSTANCE_ID",
+   "D": "The ID of the instance that's associated with network interface for which the traffic is recorded, if the instance is owned by you. Returns a '-' symbol for a requester-managed network interface; for example, the network interface for a NAT gateway.",
+   "E": "VARCHAR",
+   "F": "i-0495b82559ffb4ca2"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "TYPE",
+   "C": "TYPE",
+   "D": "The type of traffic. The possible values are: IPv4 | IPv6 | EFA. For more information, see Elastic Fabric Adapter.",
+   "E": "VARCHAR",
+   "F": "IPv4\nIPv6\nEFA\n-"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "END_TIME",
+   "C": "END_TIME",
+   "D": "The time, in Unix seconds, when the last packet of the flow was received within the aggregation interval. This might be up to 60 seconds after the packet was transmitted or received on the network interface.",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": "1638162033 "
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "PROTOCOL",
+   "C": "PROTOCOL",
+   "D": "The IANA protocol number of the traffic. For more information, see Assigned Internet Protocol Numbers.",
+   "E": "NUMBER(38,0)",
+   "F": "6"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "REGION",
+   "C": "REGION",
+   "D": "The Region that contains the network interface for which traffic is recorded.",
+   "E": "VARCHAR",
+   "F": "us-east-2"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "PKT_SRCADDR",
+   "C": "PKT_SRCADDR",
+   "D": "The packet-level (original) source IP address of the traffic. Use this field with the srcaddr field to distinguish between the IP address of an intermediate layer through which traffic flows, and the original source IP address of the traffic. For example, when traffic flows through a network interface for a NAT gateway, or where the IP address of a pod in Amazon EKS is different from the IP address of the network interface of the instance node on which the pod is running (for communication within a VPC).",
+   "E": "VARCHAR",
+   "F": "192.168.235.118"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "SRCADDR",
+   "C": "SRCADDR",
+   "D": "The source address for incoming traffic, or the IPv4 or IPv6 address of the network interface for outgoing traffic on the network interface. The IPv4 address of the network interface is always its private IPv4 address. See also pkt-srcaddr.",
+   "E": "VARCHAR",
+   "F": "192.168.194.167"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "SRCPORT",
+   "C": "SRCPORT",
+   "D": "The source port of the traffic.",
+   "E": "NUMBER(38,0)",
+   "F": "80"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "PKT_SRC_AWS_SERVICE",
+   "C": "PKT_SRC_AWS_SERVICE",
+   "D": "The name of the subset of IP address ranges for the pkt-srcaddr field, if the source IP address is for an AWS service. The possible values are: AMAZON | AMAZON_APPFLOW | AMAZON_CONNECT | API_GATEWAY | CHIME_MEETINGS | CHIME_VOICECONNECTOR | CLOUD9 | CLOUDFRONT | CODEBUILD | DYNAMODB | EBS | EC2 | EC2_INSTANCE_CONNECT | GLOBALACCELERATOR | KINESIS_VIDEO_STREAMS | ROUTE53 | ROUTE53_HEALTHCHECKS | ROUTE53_HEALTHCHECKS_PUBLISHING | ROUTE53_RESOLVER | S3 | WORKSPACES_GATEWAYS.",
+   "E": "VARCHAR",
+   "F": "AMAZON\nAMAZON_APPFLOW\nAMAZON_CONNECT\nAPI_GATEWAY\nCHIME_MEETINGS\nCHIME_VOICECONNECTOR\nCLOUD9\nCLOUDFRONT\nCODEBUILD\nDYNAMODB EBS\nEC2\nEC2_INSTANCE_CONNECT \nGLOBALACCELERATOR\nKINESIS_VIDEO_STREAMS\nROUTE53\nROUTE53_HEALTHCHECKS\nROUTE53_HEALTHCHECKS_PUBLISHING\nROUTE53_RESOLVER\nS3\nWORKSPACES_GATEWAYS\n-"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "SUBLOCATION_ID",
+   "C": "SUBLOCATION_ID",
+   "D": "The ID of the sublocation that contains the network interface for which traffic is recorded. If the traffic is not from a sublocation, the record displays a '-' symbol for this field.",
+   "E": "VARCHAR",
+   "F": "-"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "SUBLOCATION_TYPE",
+   "C": "SUBLOCATION_TYPE",
+   "D": "The type of sublocation that's returned in the sublocation-id field. The possible values are: wavelength | outpost | localzone. If the traffic is not from a sublocation, the record displays a '-' symbol for this field.",
+   "E": "VARCHAR",
+   "F": "wavelength\noutpost\nlocalzone\n-"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "SUBNET_ID",
+   "C": "SUBNET_ID",
+   "D": "The ID of the subnet that contains the network interface for which the traffic is recorded.",
+   "E": "VARCHAR",
+   "F": "subnet-057ac5041499c9903"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "TCP_FLAGS",
+   "C": "TCP_FLAGS",
+   "D": "The bitmask value for the following TCP flags:\nSYN — 2\nSYN-ACK — 18\nFIN — 1\nRST — 4\nACK is reported only when it's accompanied with SYN.\nTCP flags can be OR-ed during the aggregation interval. For short connections, the flags might be set on the same line in the flow log record, for example, 19 for SYN-ACK and FIN, and 3 for SYN and FIN. For an example, see TCP flag sequence.",
+   "E": "NUMBER(38,0)",
+   "F": "1, 2, 4, 8\n19 "
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "TRAFFIC_PATH",
+   "C": "TRAFFIC_PATH",
+   "D": "The path that egress traffic takes to the destination. To determine whether the traffic is egress traffic, check the flow-direction field. The possible values are as follows. If none of the values apply, the field is set to -.\n1 — Through another resource in the same VPC\n2 — Through an internet gateway or a gateway VPC endpoint\n3 — Through a virtual private gateway\n4 — Through an intra-region VPC peering connection\n5 — Through an inter-region VPC peering connection\n6 — Through a local gateway\n7 — Through a gateway VPC endpoint (Nitro-based instances only)\n8 — Through an internet gateway (Nitro-based instances only)",
+   "E": "NUMBER(38,0)",
+   "F": "\n-\n1 — Through another resource in the same VPC\n2 — Through an internet gateway or a gateway VPC endpoint\n3 — Through a virtual private gateway\n4 — Through an intra-region VPC peering connection\n5 — Through an inter-region VPC peering connection\n6 — Through a local gateway\n7 — Through a gateway VPC endpoint (Nitro-based instances only)\n8 — Through an internet gateway (Nitro-based instances only)"
+ },
+ {
+   "A": "AMZ_AWS_VPCFLOW_ODM",
+   "B": "VPC_ID",
+   "C": "VPC_ID",
+   "D": "The ID of the VPC that contains the network interface for which the traffic is recorded.",
+   "E": "VARCHAR",
+   "F": "vpc-0b5c7ec67d90f2b0d"
+ }
+]

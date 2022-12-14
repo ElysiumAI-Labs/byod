@@ -1,0 +1,826 @@
+[
+ {
+   "A": "Source_Table_Name",
+   "B": "Field_Name",
+   "C": "JSON_MAPPING",
+   "D": "DESCRIPTION",
+   "E": "DATA_TYPE",
+   "F": "SAMPLE_VALUES"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "ACCOUNT_ID",
+   "C": "ACCOUNTID",
+   "D": "Account ID – the ID of the AWS account in which the activity took place that prompted GuardDuty to generate this finding.",
+   "E": "VARCHAR",
+   "F": "\"646455780665\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "ACTION_APICALL_NAME",
+   "C": "SERVICE_ACTION_AWSAPICALLACTION_API",
+   "D": "API – the name of the API operation that was invoked and thus prompted GuardDuty to generate this finding. The AWS API name.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingAPIName\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "ACTION_APICALL_DOMAIN",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.domainDetails.domain'",
+   "D": "The domain information for the AWS API call.\nType: String",
+   "E": "VARCHAR",
+   "F": "(No sample found)"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "ACTION_APICALL_INFO",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction'",
+   "D": "Parameters related to an AWS API Call Action when the service.action.actionType is \"AWS_API_CALL\"\nType: AwsApiCallAction object",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"api\": \"GeneratedFindingAPIName\", 3 \"serviceName\": \"GeneratedFindingAPIServiceName\", 4 \"callerType\": \"Remote IP\", 5 \"errorCode\": \"AccessDenied\", 6 \"remoteIpDetails\": { 7 \"ipAddressV4\": \"198.51.100.0\", 8 \"organization\": { 9 \"asn\": \"11030\", 10 \"asnOrg\": \"GeneratedFindingASNOrg\", 11 \"isp\": \"GeneratedFindingISP\", 12 \"org\": \"GeneratedFindingORG\" 13 }, 14 \"country\": { 15 \"countryName\": \"GeneratedFindingCountryName\" 16 }, 17 \"city\": { 18 \"cityName\": \"GeneratedFindingCityName\" 19 }, 20 \"geoLocation\": { 21 \"lat\": 0, 22 \"lon\": 0 23 } 24 }, 25 \"affectedResources\": {} 26} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "ACTION_ERROR_CODE",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.errorCode'",
+   "D": "ERROR CODE – if the finding was triggered by a failed API call this displays the error code for that call. The error code of the failed AWS API action.",
+   "E": "VARCHAR",
+   "F": "\"AccessDenied\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "ACTION_INFO",
+   "C": "ORIGINAL_STRING:'service.action'",
+   "D": "Information about the activity that is described in a finding.\nType: Action object",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"actionType\": \"AWS_API_CALL\", 3 \"awsApiCallAction\": { 4 \"api\": \"GeneratedFindingAPIName\", 5 \"serviceName\": \"GeneratedFindingAPIServiceName\", 6 \"callerType\": \"Remote IP\", 7 \"errorCode\": \"AccessDenied\", 8 \"remoteIpDetails\": { 9 \"ipAddressV4\": \"198.51.100.0\", 10 \"organization\": { 11 \"asn\": \"11030\", 12 \"asnOrg\": \"GeneratedFindingASNOrg\", 13 \"isp\": \"GeneratedFindingISP\", 14 \"org\": \"GeneratedFindingORG\" 15 }, 16 \"country\": { 17 \"countryName\": \"GeneratedFindingCountryName\" 18 }, 19 \"city\": { 20 \"cityName\": \"GeneratedFindingCityName\" 21 }, 22 \"geoLocation\": { 23 \"lat\": 0, 24 \"lon\": 0 25 } 26 }, 27 \"affectedResources\": {} 28 } 29} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "ACTION_TYPE",
+   "C": "SERVICE_ACTION_ACTIONTYPE",
+   "D": "Action type – The finding activity type. This value can be NETWORK_CONNECTION, PORT_PROBE, DNS_REQUEST, or AWS_API_CALL. The information available varies based on action type:\nAWS_API_CALL – indicates that an AWS API was invoked. This action type has the following additional information:\nAPI – the name of the API operation that was invoked and thus prompted GuardDuty to generate this finding.\nDNS_REQUEST – indicates that the identified EC2 instance queried a domain name. This action type has the following additional information:\nProtocol – the network connection protocol observed in the activity that prompted GuardDuty to generate the finding.\nBlocked – Indicates whether the targeted port is blocked.\nNETWORK_CONNECTION – indicates that network traffic was exchanged between the identified EC2 instance and the remote host. This action type has the following additional information:\nConnection direction – The network connection direction observed in the activity that prompted GuardDuty to generate the finding. The values can be one of the following:\nINBOUND – indicates that a remote host initiated a connection to a local port on the identified EC2 instance in your account.\nOUTBOUND – indicates that the identified EC2 instance initiated a connection to a remote host.\nUNKNOWN – indicates that GuardDuty could not determine the direction of the connection.\nProtocol – the network connection protocol observed in the activity that prompted GuardDuty to generate the finding.\nLocal IP – The original source IP of the traffic that triggered the finding. This info can be used to distinguish between the IP address of an intermediate layer through which traffic flows, and the original source IP address of the traffic that triggered the finding. For example the IP address of an EKS pod as opposed to the IP address of the instance on which the EKS pod is running.\nBlocked – Indicates whether the targeted port is blocked.\nPORT_PROBE – indicates that a remote host probed the identified EC2 instance on multiple open ports. This action type has the following additional information:\nLocal IP – The original source IP of the traffic that triggered the finding. This info can be used to distinguish between the IP address of an intermediate layer through which traffic flows, and the original source IP address of the traffic that triggered the finding. For example the IP address of an EKS pod as opposed to the IP address of the instance on which the EKS pod is running.\nBlocked – Indicates whether the targeted port is blocked.",
+   "E": "VARCHAR",
+   "F": "\"AWS_API_CALL\"\n“DNS_REQUEST”\n\"NETWORK_CONNECTION\"\n“PORT_PROBE”\n "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "ANOMALITY_API_LIST",
+   "C": "ORIGINAL_STRING:'service.additionalInfo.anomalies.anomalousAPIs'",
+   "D": "Anomalous APIs – a list of API requests that were invoked by the user identity in proximity to the primary API request associated with the finding. This pane further breaks down the details of the API event in the following ways:\nThe first API listed is the primary API, which is the API request associated with the highest-risk observed activity. This is the API that triggered the finding and correlates to the attack stage of the finding type. This is also the API that is detailed under the Action section in the console, and in the finding's JSON.\nAny other APIs listed are additional anomalous APIs from the listed user identity observed in proximity to the primary API. If there is only one API on the list, the ML model did not identify any additional API requests from that user identity as anomalous.\nThe list of APIs is divided based on whether an API was successfully called, or if the API was unsuccessfully called, meaning an error response was received. The type of error response received is listed above each unsuccessfully-called API. Possible error response types are: access denied, access denied exception, auth failure, instance limit exceeded, invalid permission - duplicate, invalid permission - not found, operation not permitted.\nAPIs are categorized by their associated service.",
+   "E": "VARIANT",
+   "F": " \n\n1\"GeneratedFindingAPIServiceName:[GeneratedFindingAPIName:AccessDenied , 2 GeneratedFindingAPINameTwo:AccessDenied] , 3 GeneratedFindingAPIServiceNameThree:[GeneratedFindingAPINameThree:success] , 4 GeneratedFindingAPIServiceNameFour:[GeneratedFindingAPINameFour:success]\" \n "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "ARCHIVED_FLAG",
+   "C": "SERVICE_ARCHIVED",
+   "D": "Indicates whether this finding is archived.\nType: Boolean",
+   "E": "BOOLEAN",
+   "F": "false"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "COMMIT_TIME",
+   "C": "COMMIT_TIME",
+   "D": "Time in UTC when the record was commited in Snowflake.",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "CONNECTION_BLOCKED_FLAG",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.blocked'",
+   "D": "Blocked – Indicates whether the targeted port is blocked. Indicates whether EC2 blocked the network connection to your instance.\nType: Boolean",
+   "E": "BOOLEAN",
+   "F": "false\ntrue"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "CONNECTION_DIRECTION",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.connectionDirection'",
+   "D": "Connection direction – The network connection direction observed in the activity that prompted GuardDuty to generate the finding. The values can be one of the following:\nINBOUND – indicates that a remote host initiated a connection to a local port on the identified EC2 instance in your account.\nOUTBOUND – indicates that the identified EC2 instance initiated a connection to a remote host.\nUNKNOWN – indicates that GuardDuty could not determine the direction of the connection.",
+   "E": "VARCHAR",
+   "F": "“INBOUND“\n\"OUTBOUND\"\n“UNKNOWN“"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "CONNECTION_INFO",
+   "C": "SERVICE_ACTION_NETWORKCONNECTIONACTION",
+   "D": "Information about the NETWORK_CONNECTION action described in this finding.\nType: NetworkConnectionAction object",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"connectionDirection\": \"OUTBOUND\", 3 \"localIpDetails\": { 4 \"ipAddressV4\": \"10.0.0.23\" 5 }, 6 \"remoteIpDetails\": { 7 \"ipAddressV4\": \"198.51.100.0\", 8 \"organization\": { 9 \"asn\": \"-1\", 10 \"asnOrg\": \"GeneratedFindingASNOrg\", 11 \"isp\": \"GeneratedFindingISP\", 12 \"org\": \"GeneratedFindingORG\" 13 }, 14 \"country\": { 15 \"countryName\": \"GeneratedFindingCountryName\" 16 }, 17 \"city\": { 18 \"cityName\": \"GeneratedFindingCityName\" 19 }, 20 \"geoLocation\": { 21 \"lat\": 0, 22 \"lon\": 0 23 } 24 }, 25 \"remotePortDetails\": { 26 \"port\": 80, 27 \"portName\": \"HTTP\" 28 }, 29 \"localPortDetails\": { 30 \"port\": 39677, 31 \"portName\": \"Unknown\" 32 }, 33 \"protocol\": \"TCP\", 34 \"blocked\": false 35} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "CONNECTION_PROTO",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.protocol'",
+   "D": "The network connection protocol.\nType: String",
+   "E": "VARCHAR",
+   "F": "“TCP”"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "CREATE_TIME",
+   "C": "CREATEDAT",
+   "D": "Created at – the time and date when this finding was first created. If this value differs from Updated at, it indicates that the activity has occurred multiple times and is an ongoing issue.\nNote\nTimestamps for findings in the GuardDuty console appear in your local time zone, while JSON exports and CLI outputs display timestamps in UTC.",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": "\"2021-07-12T16:51:00.175Z\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DETECTOR_ID",
+   "C": "SERVICE_DETECTORID",
+   "D": "The detector ID for the GuardDuty service.\nType: String\nLength Constraints: Minimum length of 1. Maximum length of 300.",
+   "E": "VARCHAR",
+   "F": "\"5abac70de21d9375d027fe47d5fb553c\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DNS_BLOCKED_FLAG",
+   "C": "ORIGINAL_STRING:'service.action.dnsRequestAction.blocked'",
+   "D": "Blocked – Indicates whether the targeted port is blocked.",
+   "E": "BOOLEAN",
+   "F": "true"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DNS_FINDING_EVIDENCE",
+   "C": "SERVICE_EVIDENCE",
+   "D": "Findings based on DNS logs have an Evidence section that includes the following information:\nThreat intelligence details – the name of the threat list that the recognized Threat name appears on.\nThreat name – the name of the malware family, or other identifier, associated with the threat.\nAn evidence object associated with the service.\nType: Evidence object",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"threatIntelligenceDetails\": [ 3 { 4 \"threatListName\": \"GeneratedFindingThreatListName\", 5 \"threatNames\": [ 6 \"GeneratedFindingThreatName\" 7 ] 8 } 9 ] 10} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DNS_PROTO",
+   "C": "ORIGINAL_STRING:'service.action.dnsRequestAction.protocol'",
+   "D": "Protocol – the network connection protocol observed in the activity that prompted GuardDuty to generate the finding.",
+   "E": "VARCHAR",
+   "F": "“UDP”"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DNS_QUERY",
+   "C": "ORIGINAL_STRING:'service.action.dnsRequestAction.domain'",
+   "D": "The domain name queried in the DNS request. The domain information for the API request.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingDomainName\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_BUCKET_INFO",
+   "C": "RESOURCE_S3BUCKETDETAILS",
+   "D": "Contains information on the S3 bucket. S3BucketDetail - Amazon GuardDuty \nS3 bucket details:\nName – The name of the bucket involved in the finding.\nARN – The ARN of the bucket involved in the finding.\nOwner – The canonical user ID of the user that owns the bucket involved in the finding. For more information on canonical user IDs see AWS account identifiers.\nType – The type of bucket finding, can be either Destination or Source.\nDefault server side encryption – encryption details for the bucket.\nBucket Tags – a list of tags attached to this resource, listed in the format of key:value.\nEffective Permissions – An evaluation of all effective permissions and policies on the bucket that indicates whether the involved bucket is publicly exposed. Values can be PUBLIC or NOT PUBLIC.",
+   "E": "VARIANT",
+   "F": "\n\n1[ 2 { 3 \"arn\": \"arn:aws:s3:::bucketName\", 4 \"name\": \"bucketName\", 5 \"type\": \"Destination\", 6 \"createdAt\": 1513612691.551, 7 \"owner\": { 8 \"id\": \"CanonicalId of Owner\" 9 }, 10 \"tags\": [ 11 { 12 \"key\": \"foo\", 13 \"value\": \"bar\" 14 } 15 ], 16 \"defaultServerSideEncryption\": { 17 \"encryptionType\": \"SSEAlgorithm\", 18 \"kmsMasterKeyArn\": \"arn:aws:kms:region:123456789012:key/key-id\" 19 }, 20 \"publicAccess\": { 21 \"permissionConfiguration\": { 22 \"bucketLevelPermissions\": { 23 \"accessControlList\": { 24 \"allowsPublicReadAccess\": false, 25 \"allowsPublicWriteAccess\": false 26 }, 27 \"bucketPolicy\": { 28 \"allowsPublicReadAccess\": false, 29 \"allowsPublicWriteAccess\": false 30 }, 31 \"blockPublicAccess\": { 32 \"ignorePublicAcls\": false, 33 \"restrictPublicBuckets\": false, 34 \"blockPublicAcls\": false, 35 \"blockPublicPolicy\": false 36 } 37 }, 38 \"accountLevelPermissions\": { 39 \"blockPublicAccess\": { 40 \"ignorePublicAcls\": false, 41 \"restrictPublicBuckets\": false, 42 \"blockPublicAcls\": false, 43 \"blockPublicPolicy\": false 44 } 45 } 46 }, 47 \"effectivePermission\": \"NOT_PUBLIC\" 48 } 49 } 50] "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_AVAILABILITY_ZONE",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.availabilityZone'",
+   "D": "Availability Zone – The AWS Region Availability Zone in which the involved instance is located.",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingInstaceAvailabilityZone\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_ID",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.instanceId'",
+   "D": "Instance ID – the ID of the EC2 instance involved in the activity that prompted GuardDuty to generate the finding.",
+   "E": "VARCHAR",
+   "F": "\"i-99999999\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_IMAGE_DESC",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.imageDescription'",
+   "D": "Image Description – A description of the ID of the Amazon Machine Image used to build the instance involved in the activity.",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingInstaceImageDescription\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_IMAGE_ID",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.imageId'",
+   "D": "Image ID – The ID of the Amazon Machine Image used to build the instance involved in the activity.",
+   "E": "VARCHAR",
+   "F": "\"ami-99999999\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_INFO",
+   "C": "RESOUCE_INSTANCEDETAILS",
+   "D": "Instance details:\nNote: Some instance details may be missing if the instance has already been terminated or if the underlying API invocation originated from an EC2 instance in a different Region when making a cross-Region API call.\nInstance ID – the ID of the EC2 instance involved in the activity that prompted GuardDuty to generate the finding.\nInstance Type – the type of the EC2 instance involved in the finding.\nLaunch Time – the time and date the instance was launched.\nOutpost ARN – The Amazon Resource Name (ARN) of the AWS Outposts. Only applicable to AWS Outpostss instances. For more information, see What is AWS Outposts?\nSecurity Group Name – The name of the Security Group attached to the involved instance.\nSecurity Group ID – The ID of the Security Group attached to the involved instance.\nInstance state – The current state of the targeted instance.\nAvailability Zone – The AWS Region Availability Zone in which the involved instance is located.\nImage ID – The ID of the Amazon Machine Image used to build the instance involved in the activity.\nImage Description – A description of the ID of the Amazon Machine Image used to build the instance involved in the activity.\nTags – A list of tags attached to this resource, listed in the format of key:value.",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"instanceId\": \"i-99999999\", 3 \"instanceType\": \"m3.xlarge\", 4 \"outpostArn\": \"arn:aws:outposts:us-west-2:123456789000:outpost/op-0fbc006e9abbc73c3\", 5 \"launchTime\": \"2016-08-02T02:05:06Z\", 6 \"platform\": null, 7 \"productCodes\": [ 8 { 9 \"productCodeId\": \"GeneratedFindingProductCodeId\", 10 \"productCodeType\": \"GeneratedFindingProductCodeType\" 11 } 12 ], 13 \"iamInstanceProfile\": { 14 \"arn\": \"arn:aws:iam::646455780665:example/instance/profile\", 15 \"id\": \"GeneratedFindingInstanceProfileId\" 16 }, 17 \"networkInterfaces\": [ 18 { 19 \"ipv6Addresses\": [], 20 \"networkInterfaceId\": \"eni-bfcffe88\", 21 \"privateDnsName\": \"GeneratedFindingPrivateDnsName\", 22 \"privateIpAddress\": \"10.0.0.1\", 23 \"privateIpAddresses\": [ 24 { 25 \"privateDnsName\": \"GeneratedFindingPrivateName\", 26 \"privateIpAddress\": \"10.0.0.1\" 27 } 28 ], 29 \"subnetId\": \"GeneratedFindingSubnetId\", 30 \"vpcId\": \"GeneratedFindingVPCId\", 31 \"securityGroups\": [ 32 { 33 \"groupName\": \"GeneratedFindingSecurityGroupName\", 34 \"groupId\": \"GeneratedFindingSecurityId\" 35 } 36 ], 37 \"publicDnsName\": \"GeneratedFindingPublicDNSName\", 38 \"publicIp\": \"198.51.100.0\" 39 } 40 ], 41 \"tags\": [ 42 { 43 \"key\": \"GeneratedFindingInstaceTag1\", 44 \"value\": \"GeneratedFindingInstaceValue1\" 45 }, 46 { 47 \"key\": \"GeneratedFindingInstaceTag2\", 48 \"value\": \"GeneratedFindingInstaceTagValue2\" 49 }, 50 { 51 \"key\": \"GeneratedFindingInstaceTag3\", 52 \"value\": \"GeneratedFindingInstaceTagValue3\" 53 }, 54 { 55 \"key\": \"GeneratedFindingInstaceTag4\", 56 \"value\": \"GeneratedFindingInstaceTagValue4\" 57 }, 58 { 59 \"key\": \"GeneratedFindingInstaceTag5\", 60 \"value\": \"GeneratedFindingInstaceTagValue5\" 61 }, 62 { 63 \"key\": \"GeneratedFindingInstaceTag6\", 64 \"value\": \"GeneratedFindingInstaceTagValue6\" 65 }, 66 { 67 \"key\": \"GeneratedFindingInstaceTag7\", 68 \"value\": \"GeneratedFindingInstaceTagValue7\" 69 }, 70 { 71 \"key\": \"GeneratedFindingInstaceTag8\", 72 \"value\": \"GeneratedFindingInstaceTagValue8\" 73 }, 74 { 75 \"key\": \"GeneratedFindingInstaceTag9\", 76 \"value\": \"GeneratedFindingInstaceTagValue9\" 77 } 78 ], 79 \"instanceState\": \"running\", 80 \"availabilityZone\": \"GeneratedFindingInstaceAvailabilityZone\", 81 \"imageId\": \"ami-99999999\", 82 \"imageDescription\": \"GeneratedFindingInstaceImageDescription\" 83} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_LAUNCH_TIME",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.launchTime'",
+   "D": "Launch Time – the time and date the instance was launched.",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": "\"2016-08-02T02:05:06Z\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_NETWORK_LIST",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.networkInterfaces'",
+   "D": "A collection of data about the network interfaces of the EC2 instance referenced in the GuardDuty finding.",
+   "E": "VARIANT",
+   "F": "\n\n1[ 2 { 3 \"ipv6Addresses\": [], 4 \"networkInterfaceId\": \"eni-bfcffe88\", 5 \"privateDnsName\": \"GeneratedFindingPrivateDnsName\", 6 \"privateIpAddress\": \"10.0.0.1\", 7 \"privateIpAddresses\": [ 8 { 9 \"privateDnsName\": \"GeneratedFindingPrivateName\", 10 \"privateIpAddress\": \"10.0.0.1\" 11 } 12 ], 13 \"subnetId\": \"GeneratedFindingSubnetId\", 14 \"vpcId\": \"GeneratedFindingVPCId\", 15 \"securityGroups\": [ 16 { 17 \"groupName\": \"GeneratedFindingSecurityGroupName\", 18 \"groupId\": \"GeneratedFindingSecurityId\" 19 } 20 ], 21 \"publicDnsName\": \"GeneratedFindingPublicDNSName\", 22 \"publicIp\": \"198.51.100.0\" 23 } 24] "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_OUTPOST_ARN",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.outpostArn'",
+   "D": "Outpost ARN – The Amazon Resource Name (ARN) of the AWS Outposts. Only applicable to AWS Outpostss instances. For more information, see What is AWS Outposts?",
+   "E": "VARCHAR",
+   "F": "\"arn:aws:outposts:us-west-2:123456789000:outpost/op-0fbc006e9abbc73c3\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_PLATFORM",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.platform'",
+   "D": "The platform of the EC2 instance.",
+   "E": "VARCHAR",
+   "F": null
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_PRODUCT_LIST",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.productCodes'",
+   "D": "The product code of the EC2 instance.",
+   "E": "VARIANT",
+   "F": "\n\n1[ 2 { 3 \"productCodeId\": \"GeneratedFindingProductCodeId\", 4 \"productCodeType\": \"GeneratedFindingProductCodeType\" 5 } 6] "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_PROFILE_ARN",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.iamInstanceProfile.arn'",
+   "D": "Amazon Resource Name of the instance profile.",
+   "E": "VARCHAR",
+   "F": "\"arn:aws:iam::646455780665:example/instance/profile\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_PROFILE_ID",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.iamInstanceProfile.id'",
+   "D": "The Identity of the instance profile.",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingInstanceProfileId\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_STATE",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.instanceState",
+   "D": "Instance state – The current state of the targeted instance.",
+   "E": "VARCHAR",
+   "F": "\"running\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_TAG_LIST",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.tags'",
+   "D": "Tags – A list of tags attached to this resource, listed in the format of key:value.",
+   "E": "VARIANT",
+   "F": "\n\n1[ 2 { 3 \"key\": \"GeneratedFindingInstaceTag1\", 4 \"value\": \"GeneratedFindingInstaceValue1\" 5 }, 6 { 7 \"key\": \"GeneratedFindingInstaceTag2\", 8 \"value\": \"GeneratedFindingInstaceTagValue2\" 9 }, 10 { 11 \"key\": \"GeneratedFindingInstaceTag3\", 12 \"value\": \"GeneratedFindingInstaceTagValue3\" 13 }, 14 { 15 \"key\": \"GeneratedFindingInstaceTag4\", 16 \"value\": \"GeneratedFindingInstaceTagValue4\" 17 }, 18 { 19 \"key\": \"GeneratedFindingInstaceTag5\", 20 \"value\": \"GeneratedFindingInstaceTagValue5\" 21 }, 22 { 23 \"key\": \"GeneratedFindingInstaceTag6\", 24 \"value\": \"GeneratedFindingInstaceTagValue6\" 25 }, 26 { 27 \"key\": \"GeneratedFindingInstaceTag7\", 28 \"value\": \"GeneratedFindingInstaceTagValue7\" 29 }, 30 { 31 \"key\": \"GeneratedFindingInstaceTag8\", 32 \"value\": \"GeneratedFindingInstaceTagValue8\" 33 }, 34 { 35 \"key\": \"GeneratedFindingInstaceTag9\", 36 \"value\": \"GeneratedFindingInstaceTagValue9\" 37 } 38] "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_INSTANCE_TYPE",
+   "C": "ORIGINAL_STRING:'resource.instanceDetails.instanceType'",
+   "D": "Instance Type – the type of the EC2 instance involved in the finding.",
+   "E": "VARCHAR",
+   "F": "\"m3.xlarge\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_RESOURCE_INFO",
+   "C": "RESOURCE",
+   "D": "The Resource affected gives details on the AWS resource that was targeted by the trigger activity. The information available varies based on resource type and action type.",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"resourceType\": \"AccessKey\", 3 \"accessKeyDetails\": { 4 \"accessKeyId\": \"GeneratedFindingAccessKeyId\", 5 \"principalId\": \"GeneratedFindingPrincipalId\", 6 \"userType\": \"Root\", 7 \"userName\": \"GeneratedFindingUserName\" 8 }, 9 \"instanceDetails\": { 10 \"instanceId\": \"i-99999999\", 11 \"instanceType\": \"m3.xlarge\", 12 \"outpostArn\": \"arn:aws:outposts:us-west-2:123456789000:outpost/op-0fbc006e9abbc73c3\", 13 \"launchTime\": \"2016-08-02T02:05:06Z\", 14 \"platform\": null, 15 \"productCodes\": [ 16 { 17 \"productCodeId\": \"GeneratedFindingProductCodeId\", 18 \"productCodeType\": \"GeneratedFindingProductCodeType\" 19 } 20 ], 21 \"iamInstanceProfile\": { 22 \"arn\": \"arn:aws:iam::646455780665:example/instance/profile\", 23 \"id\": \"GeneratedFindingInstanceProfileId\" 24 }, 25 \"networkInterfaces\": [ 26 { 27 \"ipv6Addresses\": [], 28 \"networkInterfaceId\": \"eni-bfcffe88\", 29 \"privateDnsName\": \"GeneratedFindingPrivateDnsName\", 30 \"privateIpAddress\": \"10.0.0.1\", 31 \"privateIpAddresses\": [ 32 { 33 \"privateDnsName\": \"GeneratedFindingPrivateName\", 34 \"privateIpAddress\": \"10.0.0.1\" 35 } 36 ], 37 \"subnetId\": \"GeneratedFindingSubnetId\", 38 \"vpcId\": \"GeneratedFindingVPCId\", 39 \"securityGroups\": [ 40 { 41 \"groupName\": \"GeneratedFindingSecurityGroupName\", 42 \"groupId\": \"GeneratedFindingSecurityId\" 43 } 44 ], 45 \"publicDnsName\": \"GeneratedFindingPublicDNSName\", 46 \"publicIp\": \"198.51.100.0\" 47 } 48 ], 49 \"tags\": [ 50 { 51 \"key\": \"GeneratedFindingInstaceTag1\", 52 \"value\": \"GeneratedFindingInstaceValue1\" 53 }, 54 { 55 \"key\": \"GeneratedFindingInstaceTag2\", 56 \"value\": \"GeneratedFindingInstaceTagValue2\" 57 }, 58 { 59 \"key\": \"GeneratedFindingInstaceTag3\", 60 \"value\": \"GeneratedFindingInstaceTagValue3\" 61 }, 62 { 63 \"key\": \"GeneratedFindingInstaceTag4\", 64 \"value\": \"GeneratedFindingInstaceTagValue4\" 65 }, 66 { 67 \"key\": \"GeneratedFindingInstaceTag5\", 68 \"value\": \"GeneratedFindingInstaceTagValue5\" 69 }, 70 { 71 \"key\": \"GeneratedFindingInstaceTag6\", 72 \"value\": \"GeneratedFindingInstaceTagValue6\" 73 }, 74 { 75 \"key\": \"GeneratedFindingInstaceTag7\", 76 \"value\": \"GeneratedFindingInstaceTagValue7\" 77 }, 78 { 79 \"key\": \"GeneratedFindingInstaceTag8\", 80 \"value\": \"GeneratedFindingInstaceTagValue8\" 81 }, 82 { 83 \"key\": \"GeneratedFindingInstaceTag9\", 84 \"value\": \"GeneratedFindingInstaceTagValue9\" 85 } 86 ], 87 \"instanceState\": \"running\", 88 \"availabilityZone\": \"GeneratedFindingInstaceAvailabilityZone\", 89 \"imageId\": \"ami-99999999\", 90 \"imageDescription\": \"GeneratedFindingInstaceImageDescription\" 91 } 92} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_RESOURCE_LIST",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.affectedResources'",
+   "D": " ",
+   "E": "VARIANT",
+   "F": "{}"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DST_RESOURCE_TYPE",
+   "C": "RESOURCE_RESOURCETYPE",
+   "D": "Resource type – the type of the affected resource. This value is either AccessKey, S3 bucket or Instance. Depending on the resource type, different finding details are available. Select a resource option tab to learn about the details available for that resource.",
+   "E": "VARCHAR",
+   "F": "\"AccessKey\"\n“Instance”\n“S3Bucket”"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DVC_PRODUCT",
+   "C": "Constant “AWS”",
+   "D": "Constant “AWS”",
+   "E": "VARCHAR",
+   "F": "“AWS”"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DVC_VENDOR",
+   "C": "Constant “Amazon”",
+   "D": "Constant “Amazon”",
+   "E": "VARCHAR",
+   "F": "“Amazon”"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "DVC_VERSION",
+   "C": "Constant “*”",
+   "D": "Constant “*”",
+   "E": "VARCHAR",
+   "F": "“*”"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "FINDING_UPDATE_TIME",
+   "C": "UPDATEDAT",
+   "D": "Updated at – The last time this finding was updated with new activity matching the pattern that prompted GuardDuty to generate this finding.\nNote\nTimestamps for findings in the GuardDuty console appear in your local time zone, while JSON exports and CLI outputs display timestamps in UTC.\nThe time and date when the finding was last updated.\nType: String",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": "\"2021-07-12T16:51:00.175Z\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "EXTRA_FINDING_INFO",
+   "C": "SERVICE_ADDITIONALINFO",
+   "D": "All findings have an Additional information section that can include the following information:\nThreat list name – the name of the threat list that includes the IP address or the domain name involved in the activity that prompted GuardDuty to generate the finding.\nSample – a true or false value that indicates whether this is a sample finding.\nArchived – a true or false value that indicates whether this is finding has been archived.\nUnusual – activity details that were not observed historically. These can include an unusual (previously not observed) user, or location, or time.\nUnusual protocol– the network connection protocol involved in the activity that prompted GuardDuty to generate the finding.",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"sample\": true 3} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "FINDING_ARN",
+   "C": "ARN",
+   "D": "Amazon Resource Name of the Finding",
+   "E": "VARCHAR",
+   "F": "\"arn:aws:guardduty:us-east-2:646455780665:detector/5abac70de21d9375d027fe47d5fb553c/finding/00bd4dd084e7c97deea2825a922d7035\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "FINDING_COUNT",
+   "C": "SERVICE_COUNT",
+   "D": "The total count of the occurrences of this finding type.\nType: Integer",
+   "E": "NUMBER",
+   "F": "1"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "FINDING_DESC",
+   "C": "DESCRIPTION",
+   "D": "Human language description of the finding.",
+   "E": "VARCHAR",
+   "F": "\"EC2 instance i-093d53f93bea2d86b is querying a domain name that is associated with Bitcoin-related activity.\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "FINDING_FEEDBACK",
+   "C": "SERVICE_USERFEEDBACK",
+   "D": "Feedback that was submitted about the finding.\nType: String",
+   "E": "VARCHAR",
+   "F": "(No sample found)"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "FINDING_ID",
+   "C": "ID",
+   "D": "Finding ID – A unique Finding ID for this finding type and set of parameters. New occurrences of activity matching this pattern will be aggregated to the same ID.",
+   "E": "VARCHAR",
+   "F": "\"00bd4dd084e7c97deea2825a922d7035\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "FINDING_INFO",
+   "C": "SERVICE",
+   "D": "Contains additional information about the generated finding.\nType: Service object",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"serviceName\": \"guardduty\", 3 \"detectorId\": \"5abac70de21d9375d027fe47d5fb553c\", 4 \"action\": { 5 \"actionType\": \"AWS_API_CALL\", 6 \"awsApiCallAction\": { 7 \"api\": \"GeneratedFindingAPIName\", 8 \"serviceName\": \"GeneratedFindingAPIServiceName\", 9 \"callerType\": \"Remote IP\", 10 \"errorCode\": \"AccessDenied\", 11 \"remoteIpDetails\": { 12 \"ipAddressV4\": \"198.51.100.0\", 13 \"organization\": { 14 \"asn\": \"11030\", 15 \"asnOrg\": \"GeneratedFindingASNOrg\", 16 \"isp\": \"GeneratedFindingISP\", 17 \"org\": \"GeneratedFindingORG\" 18 }, 19 \"country\": { 20 \"countryName\": \"GeneratedFindingCountryName\" 21 }, 22 \"city\": { 23 \"cityName\": \"GeneratedFindingCityName\" 24 }, 25 \"geoLocation\": { 26 \"lat\": 0, 27 \"lon\": 0 28 } 29 }, 30 \"affectedResources\": {} 31 } 32 }, 33 \"resourceRole\": \"TARGET\", 34 \"additionalInfo\": { 35 \"sample\": true 36 }, 37 \"eventFirstSeen\": \"2021-07-12T16:51:00Z\", 38 \"eventLastSeen\": \"2021-07-12T16:51:00Z\", 39 \"archived\": false, 40 \"count\": 1 41 } 42} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "FINDING_SCHEMA_VERSION",
+   "C": "SCHEMAVERSION",
+   "D": "The version of the schema used for the finding.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"2.0\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "FINDING_TITLE",
+   "C": "TITLE",
+   "D": "The title of the finding.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"API GeneratedFindingAPIName was invoked using root credentials.\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "FINDING_TYPE",
+   "C": "TYPE",
+   "D": "The Type of finding. See list of possible values at Finding types - Amazon GuardDuty \nThe type of finding.\nType: String\nLength Constraints: Minimum length of 1. Maximum length of 50.",
+   "E": "VARCHAR",
+   "F": "\"Policy:IAMUser/RootCredentialUsage\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "FIRST_EVENT_TIME",
+   "C": "SERVICE_EVENTFIRSTSEEN",
+   "D": "The first-seen timestamp of the activity that prompted GuardDuty to generate this finding.\nType: String",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": "\"2021-07-12T16:51:00Z\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "GUID",
+   "C": "GUID",
+   "D": "Globally Unique Identifier created by Snowflake when record is committed.",
+   "E": "VARCHAR",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "LAST_EVENT_TIME",
+   "C": "SERVICE_EVENTLASTSEEN",
+   "D": "The last-seen timestamp of the activity that prompted GuardDuty to generate this finding.\nType: String",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": "\"2021-07-12T16:51:00Z\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "LOCAL_IP",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.localIpDetails.ipAddressV4'",
+   "D": "The IPv4 local address of the connection.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"10.0.0.23\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "LOCAL_PORT",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.localPortDetails.port'",
+   "D": "The port number of the local connection.\nType: Integer",
+   "E": "NUMBER(6,0)",
+   "F": "39677"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "LOCAL_PORT_NAME",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.localPortDetails.portName'",
+   "D": "The port name of the local connection.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"Unknown\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "PARSING_TIME",
+   "C": "PARSING_TIME",
+   "D": " ",
+   "E": "TIMESTAMP_NTZ(9)",
+   "F": " "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "PARTITION",
+   "C": "PARTITION",
+   "D": "A Partition is a group of AWS Region and Service objects. You can use a partition to determine what services are available in a region, or what regions a service is available in.",
+   "E": "VARCHAR",
+   "F": "\"aws\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "PORT_PROBE_BLOCKED_FLAG",
+   "C": "ORIGINAL_STRING:'service.action.portProbeAction.blocked'",
+   "D": "Blocked – Indicates whether the targeted port is blocked. Indicates whether EC2 blocked the port probe to the instance, such as with an ACL.\nType: Boolean",
+   "E": "BOOLEAN",
+   "F": "false"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "PORT_PROBE_INFO",
+   "C": "SERVICE_ACTION_PORTPROBEACTION",
+   "D": "Parameters related to the Port Probe when the actionType value is “PORT_PROBE”. Information about the PORT_PROBE action described in this finding. \nType: PortProbeAction object",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"portProbeDetails\": [ 3 { 4 \"localPortDetails\": { 5 \"port\": 22, 6 \"portName\": \"SSH\" 7 }, 8 \"localIpDetails\": { 9 \"ipAddressV4\": \"10.0.0.23\" 10 }, 11 \"remoteIpDetails\": { 12 \"ipAddressV4\": \"198.51.100.0\", 13 \"organization\": { 14 \"asn\": \"-1\", 15 \"asnOrg\": \"GeneratedFindingASNOrg\", 16 \"isp\": \"GeneratedFindingISP\", 17 \"org\": \"GeneratedFindingORG\" 18 }, 19 \"country\": { 20 \"countryName\": \"GeneratedFindingCountryName\" 21 }, 22 \"city\": { 23 \"cityName\": \"GeneratedFindingCityName\" 24 }, 25 \"geoLocation\": { 26 \"lat\": 0, 27 \"lon\": 0 28 } 29 } 30 } 31 ], 32 \"blocked\": false 33} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "PORT_PROBE_LIST",
+   "C": "ORIGINAL_STRING:'service.action.portProbeAction.portProbeDetails'",
+   "D": "An array of data on the Port Probe. A list of objects related to port probe details.\nType: Array of PortProbeDetail objects",
+   "E": "VARIANT",
+   "F": "\n\n1[ 2 { 3 \"localPortDetails\": { 4 \"port\": 22, 5 \"portName\": \"SSH\" 6 }, 7 \"localIpDetails\": { 8 \"ipAddressV4\": \"10.0.0.23\" 9 }, 10 \"remoteIpDetails\": { 11 \"ipAddressV4\": \"198.51.100.0\", 12 \"organization\": { 13 \"asn\": \"-1\", 14 \"asnOrg\": \"GeneratedFindingASNOrg\", 15 \"isp\": \"GeneratedFindingISP\", 16 \"org\": \"GeneratedFindingORG\" 17 }, 18 \"country\": { 19 \"countryName\": \"GeneratedFindingCountryName\" 20 }, 21 \"city\": { 22 \"cityName\": \"GeneratedFindingCityName\" 23 }, 24 \"geoLocation\": { 25 \"lat\": 0, 26 \"lon\": 0 27 } 28 } 29 } 30] "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "PROFILED_BEHAVIOR_INFO",
+   "C": "ORIGINAL_STRING:'service.additionalInfo.profiledBehavior'",
+   "D": " ",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"rareProfiledAPIsAccountProfiling\": \"GeneratedFindingAPINameTwo , GeneratedFindingAPINameThree\", 3 \"infrequentProfiledAPIsAccountProfiling\": \"GeneratedFindingAPINameFour\", 4 \"frequentProfiledAPIsAccountProfiling\": \"GeneratedFindingAPINameFive , GeneratedFindingAPINameSix\", 5 \"rareProfiledAPIsUserIdentityProfiling\": \"GeneratedFindingAPINameTwo\", 6 \"infrequentProfiledAPIsUserIdentityProfiling\": \"GeneratedFindingAPINameSix\", 7 \"frequentProfiledAPIsUserIdentityProfiling\": \"GeneratedFindingAPINameFive\", 8 \"rareProfiledUserTypesAccountProfiling\": \"GeneratedFindingUserType\", 9 \"infrequentProfiledUserTypesAccountProfiling\": \"\", 10 \"frequentProfiledUserTypesAccountProfiling\": \"ASSUMED_ROLE\", 11 \"rareProfiledUserNamesAccountProfiling\": \"GeneratedFindingUserName , GeneratedFindingUserNameTwo\", 12 \"infrequentProfiledUserNamesAccountProfiling\": \"\", 13 \"frequentProfiledUserNamesAccountProfiling\": \"GeneratedFindingUserNameTwoThree\", 14 \"rareProfiledASNsAccountProfiling\": \"\", 15 \"infrequentProfiledASNsAccountProfiling\": \"\", 16 \"frequentProfiledASNsAccountProfiling\": \"asnNumber: GeneratedFindingASNOne asnOrg: GeneratedFindingASNOrgOne\", 17 \"rareProfiledASNsUserIdentityProfiling\": \"asnNumber: GeneratedFindingASNOne asnOrg: GeneratedFindingASNOrgOne\", 18 \"infrequentProfiledASNsUserIdentityProfiling\": \"\", 19 \"frequentProfiledASNsUserIdentityProfiling\": \"\", 20 \"rareProfiledUserAgentsAccountProfiling\": \"GeneratedFindingUserAgentOne , GeneratedFindingUserAgentTwo , GeneratedFindingUserAgentThree\", 21 \"infrequentProfiledUserAgentsAccountProfiling\": \"\", 22 \"frequentProfiledUserAgentsAccountProfiling\": \"AWS Service , AWS Internal\", 23 \"rareProfiledUserAgentsUserIdentityProfiling\": \"GeneratedFindingUserAgentOne\", 24 \"infrequentProfiledUserAgentsUserIdentityProfiling\": \"\", 25 \"frequentProfiledUserAgentsUserIdentityProfiling\": \"\" 26} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "REGION_NAME",
+   "C": "REGION",
+   "D": "AWS has the concept of a Region, which is a physical location around the world where we cluster data centers. ... Each AWS Region consists of multiple, isolated, and physically separate AZs within a geographic area.",
+   "E": "VARCHAR",
+   "F": "\"us-east-2\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "REMOTE_GEO_CITY",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.remoteIpDetails.city.cityName'",
+   "D": "The city name of the remote IP address.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingCityName"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "REMOTE_GEO_COUNTRY",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.remoteIpDetails.country.countryName'",
+   "D": "The country name of the remote IP address.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingCountryName\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "REMOTE_GEO_LAT",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.remoteIpDetails.geoLocation.lat'",
+   "D": "The latitude information of the remote IP address.\nType: Double",
+   "E": "NUMBER(6,3)",
+   "F": "0"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "REMOTE_GEO_LONG",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.remoteIpDetails.geoLocation.lon'",
+   "D": "The longitude information of the remote IP address.\nType: Double",
+   "E": "NUMBER(6,3)",
+   "F": "0"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "REMOTE_IP",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.remoteIpDetails.ipAddressV4'",
+   "D": "The IPv4 remote address of the connection.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"198.51.100.0\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "REMOTE_IP_ASN",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.remoteIpDetails.organization.asn'",
+   "D": "The Autonomous System Number (ASN) of the internet provider of the remote IP address.\nType: String",
+   "E": "VARCHAR",
+   "F": "“-1”"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "REMOTE_IP_INFO",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.remoteIpDetails'",
+   "D": "The remote IP information of the connection.\nType: RemoteIpDetails object",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"ipAddressV4\": \"198.51.100.0\", 3 \"organization\": { 4 \"asn\": \"-1\", 5 \"asnOrg\": \"GeneratedFindingASNOrg\", 6 \"isp\": \"GeneratedFindingISP\", 7 \"org\": \"GeneratedFindingORG\" 8 }, 9 \"country\": { 10 \"countryName\": \"GeneratedFindingCountryName\" 11 }, 12 \"city\": { 13 \"cityName\": \"GeneratedFindingCityName\" 14 }, 15 \"geoLocation\": { 16 \"lat\": 0, 17 \"lon\": 0 18 } 19 } "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "REMOTE_IP_ISP",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.remoteIpDetails.organization.isp'",
+   "D": "The ISP information for the internet provider.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingISP\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "REMOTE_IP_ORG_NAME",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.remoteIpDetails.organization.org'",
+   "D": "The name of the internet provider.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingORG\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "REMOTE_PORT",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.remotePortDetails.port'",
+   "D": "The port number of the remote connection.\nType: Integer",
+   "E": "NUMBER(6,0)",
+   "F": "80"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "REMOTE_PORT_NAME",
+   "C": "ORIGINAL_STRING:'service.action.networkConnectionAction.remotePortDetails.portName'",
+   "D": "The port name of the remote connection.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"HTTP\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SCANNED_PORT_LIST",
+   "C": "ORIGINAL_STRING:'service.additionalInfo.portsScannedSample'",
+   "D": " ",
+   "E": "VARIANT",
+   "F": "\n\n1[ 2 855, 3 738, 4 837, 5 819, 6 792, 7 882, 8 756, 9 678, 10 732, 11 714, 12 400, 13 813, 14 795, 15 822, 16 696, 17 735, 18 708, 19 690, 20 654, 21 717 22] "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SEVERITY_NUMBER",
+   "C": "SEVERITY",
+   "D": "Severity – a finding's assigned severity level of either High, Medium, or Low. For more information, see Severity levels for GuardDuty findings.\nThe severity of the finding.\nType: Double",
+   "E": "NUMBER",
+   "F": "2"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_ACCESS_KEY_INFO",
+   "C": "RESOURCE_ACCESSKEYDETAILS",
+   "D": "Access Key details:\nAccess key ID – access key ID of the user engaged in the activity that prompted GuardDuty to generate the finding.\nPrincipal ID – the principal ID of the user engaged in the activity that prompted GuardDuty to generate the finding.\nUser type – the type of user engaged in the activity that prompted GuardDuty to generate the finding. For more information, see CloudTrail userIdentity element.\nUser name – The name of the user engaged in the activity that prompted GuardDuty to generate the finding.",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"accessKeyId\": \"GeneratedFindingAccessKeyId\", 3 \"principalId\": \"GeneratedFindingPrincipalId\", 4 \"userType\": \"Root\", 5 \"userName\": \"GeneratedFindingUserName\" 6} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_CALLER_ASN",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.remoteIpDetails.organization.asn'",
+   "D": "The Autonomous System Number (ASN) of the internet provider of the remote IP address.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"11030\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_CALLER_DOMAIN_NAME",
+   "C": "SERVICE_ACTION_AWSAPICALLACTION_SERVICENAME",
+   "D": "Service name – the DNS name of the service that attempted to make the API call that triggered the finding. The AWS service name whose API was invoked.",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingAPIServiceName\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_CALLER_GEO_CITY",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.remoteIpDetails.city.cityName'",
+   "D": "The city name of the remote IP address.",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingCityName\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_CALLER_GEO_COUNTRY",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.remoteIpDetails.country.countryName'",
+   "D": "The country name of the remote IP address.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingCountryName\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_CALLER_GEO_LAT",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.remoteIpDetails.geoLocation.lat'",
+   "D": "The latitude information of the remote IP address.\nType: Double",
+   "E": "NUMBER(6,3)",
+   "F": "0"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_CALLER_GEO_LONG",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.remoteIpDetails.geoLocation.lon'",
+   "D": "The longitude information of the remote IP address.\nType: Double",
+   "E": "NUMBER(6,3)",
+   "F": "0"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_CALLER_IP",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.remoteIpDetails.ipAddressV4'",
+   "D": "The IPv4 remote address of the connection.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"198.51.100.0\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_CALLER_IP_INFO",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.remoteIpDetails'",
+   "D": "The remote IP information of the connection that initiated the AWS API call.\nType: RemoteIpDetails object",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"ipAddressV4\": \"198.51.100.0\", 3 \"organization\": { 4 \"asn\": \"11030\", 5 \"asnOrg\": \"GeneratedFindingASNOrg\", 6 \"isp\": \"GeneratedFindingISP\", 7 \"org\": \"GeneratedFindingORG\" 8 }, 9 \"country\": { 10 \"countryName\": \"GeneratedFindingCountryName\" 11 }, 12 \"city\": { 13 \"cityName\": \"GeneratedFindingCityName\" 14 }, 15 \"geoLocation\": { 16 \"lat\": 0, 17 \"lon\": 0 18 } 19} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_CALLER_ISP",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.remoteIpDetails.organization.isp'",
+   "D": "The ISP information for the internet provider.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingISP\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_CALLER_ORG_NAME",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.remoteIpDetails.organization.org'",
+   "D": "The name of the internet provider.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingORG\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_CALLER_TYPE",
+   "C": "ORIGINAL_STRING:'service.action.awsApiCallAction.callerType'",
+   "D": "The AWS API caller type.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"Remote IP\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_RESOURCE_ROLE",
+   "C": "SERVICE_RESOURCEROLE",
+   "D": "Resource role – The role of the AWS resource that triggered the finding. This value can be TARGET or ACTOR, and represents whether your resource was the target of the suspicious activity or the actor that preformed the suspicious activity.\nA finding has an Actor section if the Resource role was TARGET. This indicates that your resource was targeted by suspicious activity, and the Actor section contains details on the entity that targeted your resource.\nA finding has a Target section if the Resource role was ACTOR. This indicates that your resource was involved in suspicious activity against a remote host, and this section contains information on the IP or domain that your resource targeted.\nThe information available in the Actor or Target section can include the following:\nIP address – the IP address involved in the activity that prompted GuardDuty to generate the finding.\nLocation – location information for the IP address involved in the activity that prompted GuardDuty to generate the finding.\nOrganization – ISP organization information of the IP address involved in the activity that prompted GuardDuty to generate the finding.\nPort – the port number involved in the activity that prompted GuardDuty to generate the finding.\nDomain – the domain involved in the activity that prompted GuardDuty to generate the finding.\nThe resource role information for this finding.\nType: String",
+   "E": "VARCHAR",
+   "F": "“ACTOR”\n\"TARGET\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_SERVICE_NAME",
+   "C": "SERVICE_SERVICENAME",
+   "D": "The name of the AWS service (GuardDuty) that generated a finding.\nType: String",
+   "E": "VARCHAR",
+   "F": "\"guardduty\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_TYPE",
+   "C": "Constant “GuardDuty Finding”",
+   "D": "Constant “GuardDuty Finding”",
+   "E": "VARCHAR",
+   "F": "“GuardDuty Finding”"
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_USER_NAME",
+   "C": "ORIGINAL_STRING:'resource.accessKeyDetails.userName'",
+   "D": "User name – The name of the user engaged in the activity that prompted GuardDuty to generate the finding.",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingUserName\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "SRC_USER_TYPE",
+   "C": "ORIGINAL_STRING:'resource.accessKeyDetails.userType'",
+   "D": "User type – the type of user engaged in the activity that prompted GuardDuty to generate the finding. For more information, see CloudTrail userIdentity element.",
+   "E": "VARCHAR",
+   "F": "\"Root\"\n\"IAMUser\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "THREAT_LIST",
+   "C": "ORIGINAL_STRING:'service.evidence.threatIntelligenceDetails'",
+   "D": "Threat intelligence details – the name of the threat list that the recognized Threat name appears on.\nA list of threat intelligence details related to the evidence.\nType: Array of ThreatIntelligenceDetail objects",
+   "E": "VARIANT",
+   "F": "\n\n1[ 2 { 3 \"threatListName\": \"GeneratedFindingThreatListName\", 4 \"threatNames\": [ 5 \"GeneratedFindingThreatName\" 6 ] 7 } 8] "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "UNUSUAL_ACTIVITY_INFO",
+   "C": "SERVICE_ADDITIONALINFO_UNUSUAL",
+   "D": "Unusual – activity details that were not observed historically. These can include an unusual (previously not observed) user, or location, or time.",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"hoursOfDay\": [ 3 1513609200000 4 ], 5 \"userNames\": [ 6 \"GeneratedFindingUserName\" 7 ] 8} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "UNUSUAL_BEHAVIOR_INFO",
+   "C": "SERVICE_ADDITIONALINFO_UNUSUALBEHAVIOR",
+   "D": "Unusual Behavior (Account) – this section gives additional details on the profiled behavior for your account. The information tracked in this panel includes:\nASN Org – The ASN Org the anomalous API call was made from.\nUser Name – The name of the user that made the anomalous API call.\nUser Agent– the user agent used to make the anomalous API call. The user agent is the method used to make the call such as aws-cli or Botocore.\nUser Type – The type of user that made the anomalous API call. Possible values are AWS_SERVICE, ASSUMED_ROLE, IAM_USER, or ROLE.\nUnusual Behavior (User Identity) – this section gives additional details on the profiled behavior for the User Identity involved with the finding. When a behavior is identified as unusual this means GuardDuty's ML model has not previously seen this user identity making this API call in this way within the training period. The following additional details about the User Identity are available:\nASN Org – The ASN Org the anomalous API call was made from.\nUser Agent– the user agent used to make the anomalous API call. The user agent is the method used to make the call such as aws-cli or Botocore.\nNote For more context on Unusual behaviors, select Usual behaviors in either the Account or User ID panel to open a pane that gives details on the expected behavior for you account for each of the following categories: rare (less than once a month), infrequent (a few times a month), or frequent (daily to weekly), depending on how often they are used within your account.",
+   "E": "VARIANT",
+   "F": "\n\n1{ 2 \"unusualAPIsAccountProfiling\": \"GeneratedFindingAPIName\", 3 \"unusualAPIsUserIdentityProfiling\": \"GeneratedFindingAPIName\", 4 \"unusualUserTypesAccountProfiling\": \"\", 5 \"unusualUserNamesAccountProfiling\": \"\", 6 \"unusualASNsAccountProfiling\": \"asnNumber: -1 asnOrg: GeneratedFindingASNOrg\", 7 \"unusualASNsUserIdentityProfiling\": \"asnNumber: -1 asnOrg: GeneratedFindingASNOrg\", 8 \"unusualUserAgentsAccountProfiling\": \"GeneratedFindingUserAgentCategory\", 9 \"unusualUserAgentsUserIdentityProfiling\": \"GeneratedFindingUserAgentCategory\", 10 \"isUnusualUserIdentity\": \"false\" 11} "
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "UNUSUAL_PROTOCOL",
+   "C": "SERVICE_ADDITIONALINFO_UNUSUALPROTOCOL",
+   "D": "Unusual protocol– the network connection protocol involved in the activity that prompted GuardDuty to generate the finding.",
+   "E": "VARCHAR",
+   "F": "\"UDP\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "USERAGENT",
+   "C": "SERVICE_ADDITIONALINFO_USERAGENT_FULLUSERAGENT",
+   "D": " ",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingFullUserAgent\""
+ },
+ {
+   "A": "AMZ_AWS_GUARDDUTYFINDINGS_ODM",
+   "B": "USERAGENT_CAT",
+   "C": "SERVICE_ADDITIONALINFO_USERAGENT_USERAGENTCATEGORY",
+   "D": " ",
+   "E": "VARCHAR",
+   "F": "\"GeneratedFindingUserAgentCategory\""
+ }
+]
